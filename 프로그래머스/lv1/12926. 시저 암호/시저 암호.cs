@@ -9,9 +9,9 @@ public class Solution {
             if (s[i] == ' ')
                 ascii = (int)(s[i]);
             else if (('A' <= s[i]) && (s[i] <= 'Z'))
-                ascii = (ascii - 65) % 26 + 65;
+                ascii = (ascii - 'A') % 26 + 'A';
             else if (('a' <= s[i]) && (s[i] <= 'z'))
-                ascii = (ascii - 97) % 26 + 97;
+                ascii = (ascii - 'a') % 26 + 'a';
             answer += (char)ascii;
         }
         
