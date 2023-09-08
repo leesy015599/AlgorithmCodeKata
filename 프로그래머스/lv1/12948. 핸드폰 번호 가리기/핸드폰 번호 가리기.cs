@@ -1,16 +1,13 @@
 public class Solution {
     public string solution(string phone_number) {
         string answer = "";
-        for (int i = 0; i < phone_number.Length - 4; i++)
-        {
+        int len = phone_number.Length;
+        for (int i = 0; i < len - 4; i++)
             answer += "*";
-        }
-        for (int i = phone_number.Length - 4;
-                 i < phone_number.Length;
-                 i++)
-        {
-            answer += phone_number[i];
-        }
+        answer = answer + phone_number[len - 4]
+                        + phone_number[len - 3]
+                        + phone_number[len - 2]
+                        + phone_number[len - 1];
         return answer;
     }
 }
