@@ -1,6 +1,6 @@
 public class Solution {
     public string solution(int a, int b) {
-        while (--a != 0)
+        while (--a != 0) // if not January
         {
             switch (a)
             {
@@ -10,7 +10,6 @@ public class Solution {
                 case 7:
                 case 8:
                 case 10:
-                case 12:
                     b += 31;
                     break;
                 case 4:
@@ -24,6 +23,9 @@ public class Solution {
                     break;
             }
         }
+        string days = "THUFRISATSUNMONTUEWED";
+        return days.Substring((b % 7) * 3, 3);
+        
         switch (b % 7)
         {
             case 0:
