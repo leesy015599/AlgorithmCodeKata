@@ -2,24 +2,16 @@ using System;
 
 public class Solution {
     public int solution(int n, int m, int[] section) {
+        int wallPart = section[0];
         int answer = 0;
-        int sectionIndex = 0;
-        for (int i = 1; i <= n; i++)
+        for (int i = 0; i < section.Length; i++)
         {
-            if (i < section[sectionIndex])
-                continue;
-            i = i + m - 1; // 이 칸까지 칠했음
-            while (true)
+            if (wallPart <= section[i])
             {
-                sectionIndex++;
-                if (sectionIndex >= section.Length)
-                    break;
-                if (i < section[sectionIndex])
-                    break;
-            }                
-            answer++;
-            if (sectionIndex >= section.Length)
-                break;
+                wallPart = section[i];
+                wallPart += m;
+                answer++;
+            }
         }
         return answer;
     }
