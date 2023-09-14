@@ -5,12 +5,7 @@ public class Solution {
         int weight = 0;
         
         for (int i = 1; i <= number; i++)
-        {
-            if (CountDivisor(i) > limit)
-                weight += power;
-            else
-                weight += CountDivisor(i);
-        }
+            weight += (CountDivisor(i) > limit) ? power : CountDivisor(i);
         
         return weight;
     }
