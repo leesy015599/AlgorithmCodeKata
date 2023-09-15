@@ -13,10 +13,7 @@ public class Solution {
         while (l < 6 && w < 6)
         {
             if (lottos[l] == 0)
-            {
-                count++;
                 zero++;
-            }
             if (lottos[l] == win_nums[w])
             {
                 count++;
@@ -29,7 +26,7 @@ public class Solution {
                 w++;
         }
         
-        int[] answer = new int[2] {7 - count, 7 - count + zero};
+        int[] answer = new int[2] {7 - count - zero, 7 - count};
         if (answer[0] == 7)
             answer[0] = 6;
         if (answer[1] == 7)
