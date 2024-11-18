@@ -3,33 +3,21 @@ using System.Collections.Generic;
 
 public class Solution {
     public int solution(int k, int[] tangerine) {
-        Dictionary<int, int> container = new Dictionary<int, int>();
-        foreach (var i in tangerine)
+        List<int> tan = new List<int>(tangerine);
+        tan.Sort();
+        int[] counter =  new int[tan[tan.Count - 1] + 1];        
+        foreach (var val in tan)
+            counter[val - 1]++;
+        List<int> count = new List<int>(counter);
+        count.Sort();
+        count.Reverse();
+        int idx = 0;
+        while (k > 0 && idx < count.Count - 1)
         {
-            if (container.ContainsKey(i))
-                container[i] += 1;
-            else
-                container.Add(i, 1);
+            k -= count[idx];
+            idx++;
         }
         
-        List<int> values = new List<int>();
-        foreach (var dict in container)
-        {
-            values.Add(dict.Value);
-        }
-        values.Sort();
-        values.Reverse();
-        int answer = 0;
-        int sum = 0;
-        int j = 0;
-        while (true)
-        {
-            if (sum >= k)
-                break;
-            sum += values[j++];
-            answer++;
-        }
-
-        return answer;
+        return idx;
     }
 }
