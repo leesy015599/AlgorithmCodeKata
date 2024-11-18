@@ -3,10 +3,6 @@ using System.Collections.Generic;
 
 public class Solution {
     public int solution(int k, int[] tangerine) {
-        // 1 3 2 5 4 5 2 3
-        // 1 2 2 3 3 4 5 5 -> k : 6 -> answer : 3
-        // 6개 반환할 때, 최대한 일정하게 -> 최대한 겹치게.
-        
         Dictionary<int, int> container = new Dictionary<int, int>();
         foreach (var i in tangerine)
         {
