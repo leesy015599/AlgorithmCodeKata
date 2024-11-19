@@ -9,14 +9,14 @@ public class Solution {
         for (int firstIdx = 0; firstIdx < s.Length; firstIdx++)
         {
             Stack<char> stack = new Stack<char>();
-            for (int addIdx = 0; addIdx < s.Length; addIdx++)
+            for (int stackIdx = 0; stackIdx < s.Length; stackIdx++)
             {
-                int curIdx = (firstIdx + addIdx) % s.Length;
-                char curChar = s[curIdx];
-                if (stack.Count != 0 && close.IndexOf(curChar) == open.IndexOf(stack.Peek()) && close.IndexOf(curChar) != -1)
+                int curIdx = (firstIdx + stackIdx) % s.Length;
+                int braceIdx = close.IndexOf(s[curIdx]);
+                if (stack.Count != 0 && braceIdx != -1 && braceIdx == open.IndexOf(stack.Peek()))
                     stack.Pop();
                 else
-                    stack.Push(curChar);
+                    stack.Push(s[curIdx]);
             }
             if (stack.Count == 0)
                 answer++;
